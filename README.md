@@ -19,68 +19,68 @@ Shell is the implementation of a shell in C language.
 
 1. cd : `cd [directory]`
 	
-	a. Changes directory to directory given
-	b. Implemented in cd.c
+	- Changes directory to directory given
+	- Implemented in cd.c
 
 2. pwd : `pwd`
 	
-	a. Prints the working directory
-	b. Implemented in pwd.c
+	- Prints the working directory
+	- Implemented in pwd.c
 
 3. ls : `ls [-l -a] [directory]`
 
-	a. Prints all the file of the specific directory
-	b. ls, ls. , ls .. , ls ~ also works.
-	c. Also works for multiple directories. 
-	d. Implemented in ls.c
+	- Prints all the file of the specific directory
+	- ls, ls. , ls .. , ls ~ also works.
+	- Also works for multiple directories. 
+	- Implemented in ls.c
 
 4. echo : `echo [arguments]`
 
-	a. Print arguments taking care of spaces
-	b. Doesn't account double quotes
-	c. Implemented in echo.c
+	- Print arguments taking care of spaces
+	- Doesn't account double quotes
+	- Implemented in echo.c
 
 5. pinfo : `pinfo [PID]`
 	
-	a. With no arguments, it will print details of running command
-	b. Print details of particular PID.
-	c. Implemented in pinfo.c
+	- With no arguments, it will print details of running command
+	- Print details of particular PID.
+	- Implemented in pinfo.c
 
 6. setenv : `setenv [var] [value]`
 
-	a. Sets an environment variable named var to value.
-	b. Creats if there is no variable named var.
-	c. Implemented in envvar.c
+	- Sets an environment variable named var to value.
+	- Creats if there is no variable named var.
+	- Implemented in envvar.c
 
 7. unsetenv : `unsetenv [var]`
 
-	a. Unsets or removes an environment variable named var.
-	b. Implemented in envvar.c
+	- Unsets or removes an environment variable named var.
+	- Implemented in envvar.c
 
 8. jobs : `jobs`
 
-	a. Prints all the currently running background processes with their pid and state(running or stopped).
-	b. Implemented in jobs.c
+	- Prints all the currently running background processes with their pid and state(running or stopped).
+	- Implemented in jobs.c
 
 9. kjob : `kjob [job no.] [signal no.]`
 
-	a. Sends the signal value of signal no. to job no.
-	b. Implemented in kjob.c
+	- Sends the signal value of signal no. to job no.
+	- Implemented in kjob.c
 
 10. fg : `fg [job no.]`
 
-	a. Brings the background process with job no. to foreground.
-	b. Implemented in fg.c
+	- Brings the background process with job no. to foreground.
+	- Implemented in fg.c
 
 11. bg : `bg [job no.]`
 
-	a. Changes the state of stopped background process with job no. to running.
-	b. Implemented in bg.c
+	- Changes the state of stopped background process with job no. to running.
+	- Implemented in bg.c
 
 12. Overkill : `overkill`
 
-	a. kills all the background processes.
-	b. Implemented in overkill.c
+	- kills all the background processes.
+	- Implemented in overkill.c
 
 
 ### Foreground and Background Processes
@@ -94,16 +94,16 @@ Shell is the implementation of a shell in C language.
 
 1. Redirection
 
-	a. Handles `<`, `>`, `>>`.
-	b. `>>` appends whereas `.` overwrites the outfile file and `<` takes input from file.
-	c. Print errors whenever required.
-	d. Implemented in redirection.c
+	- Handles `<`, `>`, `>>`.
+	- `>>` appends whereas `.` overwrites the outfile file and `<` takes input from file.
+	- Print errors whenever required.
+	- Implemented in redirection.c
 
 2. Piping
 	
-	a. Handles `|`.
-	b. Print errors whenever required.
-	c. Implemented in piping.c
+	- Handles `|`.
+	- Print errors whenever required.
+	- Implemented in piping.c
 
 Piping and redirection both can be implemented together too.
 
@@ -111,40 +111,40 @@ Piping and redirection both can be implemented together too.
 
 1. CTRL-Z
 
-	a. Push currently running foreground to background.
-	b. Implemented in signal_handler.c
+	- Push currently running foreground to background.
+	- Implemented in signal_handler.c
 
 2. CTRL-C
 
-	a. Interrupts currently running foreground process by signal SIGINT.
-	b. Implemented in signal_handler.c
+	- Interrupts currently running foreground process by signal SIGINT.
+	- Implemented in signal_handler.c
 
 ### Bonus
 
 1. history : `history [num]`
 	
-	a. Prints last num commands.
-	b. If no arguments are given, it prints last 10 commands.
-	c. It stores last 20 command only. If num>20, it will give error.
-	d. Implemented in history.c
+	- Prints last num commands.
+	- If no arguments are given, it prints last 10 commands.
+	- It stores last 20 command only. If num>20, it will give error.
+	- Implemented in history.c
 
 2. nightswatch : `nightswatch -n [seconds] [newborn/interrupt]`
 
-	a. `interrupt` argument prints the number of times CPU has been interrupted by keyboard.
-	b. `newborn` argument prints the neborn PIDs
-	c. Executes every `n` number of seconds as specified by user.
-	d. Exit when `q` is pressed.
+	- `interrupt` argument prints the number of times CPU has been interrupted by keyboard.
+	- `newborn` argument prints the neborn PIDs
+	- Executes every `n` number of seconds as specified by user.
+	- Exit when `q` is pressed.
 
 3. cd : `cd -`
 	
-	a. Prints last working directory
-	b. Make present working directory equals to last working directory.
-	c. Implemented in cd.c
+	- Prints last working directory
+	- Make present working directory equals to last working directory.
+	- Implemented in cd.c
 
 4. Exit Codes:
 
-	a. Prints a sad face before prompt when an error occurs
-	b. Prints a happy face before prompt when there is no error.
+	- Prints a sad face before prompt when an error occurs
+	- Prints a happy face before prompt when there is no error.
 
 ## Exiting The Shell
 
