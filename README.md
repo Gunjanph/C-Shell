@@ -1,4 +1,4 @@
-# shell
+# C-Shell
 
 Shell is the implementation of a shell in C language.
 
