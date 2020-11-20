@@ -1,0 +1,2 @@
+main:
+	gcc -g shell.c commands.c prompt.c background.c foreground.c cd.c echo.c history.c ls.c nightswatch.c pinfo.c pwd.c redirection.c envvar.c overkill.c quit.c jobs.c signal_handler.c kjob.c piping.c fg.c bg.c
