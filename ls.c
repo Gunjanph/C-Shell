@@ -20,11 +20,6 @@ void permission(char arr[1024],ll flag)
 	{
 		if(flag==1)
 		{
-			//getcwd(path,1024);
-			//strcat(path,"/");
-			//strcat(path,arr);
-			//chdir(path);
-			//getcwd(path,1024);
 			getcwd(path,1024);
 			strcat(path,"/");
 			if(arr[0]!='/')
@@ -112,7 +107,6 @@ void permission(char arr[1024],ll flag)
 				printf("%s ", buff);
 				printf("%s\n", dl[i]->d_name);
 			}
-			//chdir(predir);
 			free(dl);
 			if(closedir(dir)==-1)
 			{
@@ -133,7 +127,7 @@ void permission(char arr[1024],ll flag)
 			for(ll i=0;i<num;i++)
 			{
 				stat(dl[i]->d_name,&list);
-				if(dl[i]->d_name[0]!='.')//&&strcmp(dp->d_name,".."))
+				if(dl[i]->d_name[0]!='.')
 				{
 					if (S_ISREG(list.st_mode))
 						printf("-");
@@ -215,7 +209,6 @@ void lsflag(ll k)
 	getcwd(predir,1024);
 	for(ll i=1;i<k;i++)
 	{
-		//printf("%d\n",strcmp(inter[i],"-al"));
 		if(inter[i][0]=='-')
 		{
 			if(strcmp(inter[i],"-l")==0)
@@ -224,7 +217,6 @@ void lsflag(ll k)
 				a++;
 			else if(strcmp(inter[i],"-al")==0 || strcmp(inter[i],"-la")==0)
 			{
-				//        printf("1\n");
 				l++;
 				a++;
 			}
@@ -240,7 +232,6 @@ void lsflag(ll k)
 		if(n==0)
 		{
 			strcpy(temp[0],".");
-			// printf("1\n");
 			permission(temp[0],1);
 		}
 		for(ll i=0;i<n;i++)
@@ -251,10 +242,7 @@ void lsflag(ll k)
 				{
 					cd(temp[i]);
 					strcpy(temp[i],new);
-					// strcpy(new,predir);
 					cd(predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				printf("%s:\n",temp[i]);
 				permission(temp[i],1);
@@ -268,10 +256,6 @@ void lsflag(ll k)
 					cd(temp[i]);
 					strcpy(temp[i],new);
 					cd(predir);
-					//printf(" %s ++++\n",predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				permission(temp[i],1);
 			}
@@ -292,11 +276,7 @@ void lsflag(ll k)
 				{
 					cd(temp[i]);
 					strcpy(temp[i],new);
-					//printf("krit: %s\n",temp[i]);
 					cd(predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				printf("%s:\n",temp[i]);
 				permission(temp[i],0);
@@ -310,9 +290,6 @@ void lsflag(ll k)
 					cd(temp[i]);
 					strcpy(temp[i],new);
 					cd(predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				permission(temp[i],0);
 			}
@@ -343,7 +320,6 @@ void lsflag(ll k)
 		}
 		for(ll i=0;i<n;i++)
 		{
-			//	printf("1\n");
 			if(n>1)
 			{
 				if(temp[i][0]=='~')
@@ -351,9 +327,6 @@ void lsflag(ll k)
 					cd(temp[i]);
 					strcpy(temp[i],new);
 					cd(predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				printf("%s:\n",temp[i]);
 				DIR *dir;
@@ -385,9 +358,6 @@ void lsflag(ll k)
 					cd(temp[i]);
 					strcpy(temp[i],new);
 					cd(predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				if((dir = opendir(temp[i]))==NULL)
 				{
@@ -421,9 +391,6 @@ void lsflag(ll k)
 				{
 					cd(temp[i]);
 					strcpy(temp[i],new);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				printf("%s:\n",temp[i]);
 				if((dir = opendir(temp[i]))==NULL)
@@ -435,7 +402,7 @@ void lsflag(ll k)
 				{
 					while((dp = readdir(dir))!=NULL)
 					{
-						if(dp->d_name[0]!='.')//&&strcmp(dp->d_name,".."))
+						if(dp->d_name[0]!='.')
 							printf("%s\n", dp->d_name);
 					}
 					if(closedir(dir)==-1)
@@ -454,9 +421,6 @@ void lsflag(ll k)
 					cd(temp[i]);
 					strcpy(temp[i],new);
 					cd(predir);
-					// strcpy(new,predir);
-					// chdir(predir);
-					// getcwd(new,1000);
 				}
 				if((dir = opendir(temp[i]))==NULL)
 				{
@@ -467,7 +431,7 @@ void lsflag(ll k)
 				{
 					while((dp = readdir(dir))!=NULL)
 					{
-						if(dp->d_name[0]!='.')//&&strcmp(dp->d_name,".."))
+						if(dp->d_name[0]!='.')
 							printf("%s\n", dp->d_name);
 					}
 					if(closedir(dir)==-1)
@@ -487,7 +451,6 @@ void lsflag(ll k)
 void ls()
 {
 	DIR *dir;
-	//printf("%s\n", new);
 	if((dir = opendir("."))==NULL)
 	{
 		perror("Cannot open current directory");
@@ -497,7 +460,7 @@ void ls()
 	{
 		while((dp = readdir(dir))!=NULL)
 		{
-			if(dp->d_name[0]!='.')//&&strcmp(dp->d_name,".."))
+			if(dp->d_name[0]!='.')
 				printf("%s\n", dp->d_name);
 		}
 		if(closedir(dir)==-1)

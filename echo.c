@@ -3,7 +3,6 @@
 void echo(char arr[10000])
 {
 	ll j,k;
-	//printf("%ld\n",strlen(arr));
 	for(ll i=0;i<strlen(arr);i++)
 	{
 		if(arr[i]=='e')
@@ -21,7 +20,7 @@ void echo(char arr[10000])
 	{
 		for(ll i=j;j<strlen(arr);i++)
 		{
-			if(arr[i]==' ')// || arr[i]=='"')
+			if(arr[i]==' ')
 				continue;
 			else
 			{

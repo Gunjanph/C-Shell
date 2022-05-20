@@ -18,11 +18,8 @@ int main()
 	getcwd(old,9999);
 	getcwd(new,9999);
 	strcpy(dir[0],new);
-	// printf(".....................\n");
-	// printf("\033[0;31m");
+
 	printf("\nWELCOME TO MY SHELL<3\n\n");
-	// printf("\033[0m");
-	// printf(".....................\n");
 	
 	// SIGNAL HANDLING
 	signal(SIGINT, Ctrl_C);
@@ -30,22 +27,17 @@ int main()
 
 	while(1)
 	{
-
-	//	strcpy(buffer,"");
 		// PRINTING PROMPT LINE
-	//	printf("%s\n",new);
 		curr_fore[0] = 0;
 		prompt(name,old,new);
-		//pidover();
 
 		strcpy(command[0],"");
-		//printf("%lld\n", curr_fore[0]);
 
 		// TAKING COMMANDS
 		char *buffer = (char*)malloc(10000*sizeof(char));
 		size_t bufsize = 1024;
 		ll ch = getline(&buffer,&bufsize,stdin);
-		// printf("%s\n",buffer);
+		
 		if(strcmp(buffer,"\0")==0 || ch ==-1)
 		{
 			printf("\n");
@@ -59,19 +51,15 @@ int main()
 		ll i=0;
 		while(tok!=NULL)
 		{
-			//printf("2\n");
 			strcpy(command[i],tok);
-			// printf("%s\n",command[i]);
 			tok = strtok(NULL,";");
 			i++;
 		}
-		//printf("%s\n", command[0]);
 
 		// OPERATING DIFFERENT COMMANDS
 		for(ll j=0;j<i;j++)
 		{
 			ll flagr=0,pipe_flag=0;
-			//printf("%s\n",command[j] );
 			for(ll t=0;t<strlen(command[j]);t++)
 			{
 				if(command[j][t]=='<')
@@ -89,7 +77,6 @@ int main()
 				else if(command[j][t]=='|')
 				{
 					pipe_flag++;
-					//printf("pipe:::%lld\n", pipe_flag);
 				}
 			}
 			if(pipe_flag>0)

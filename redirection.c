@@ -15,7 +15,7 @@ void redirection(char comm[1024])
         re = strtok (NULL, "><>>");
         n++;
     }
-	//printf("in redirection\n");
+
 	ll j=1,input=0,output=0,app=0;
 	for(ll i=0;i<strlen(comm);i++)
 	{
@@ -23,11 +23,9 @@ void redirection(char comm[1024])
 			break;
 		if(redir_args[j][0]==' ')
 		{
-			//printf("qwer\n");
 			ll length = strlen(redir_args[j]);
 			for(ll x=0;x<length-1;x++)
 			{
-				//printf("qwer\n");
 				if(redir_args[j][x+1]!=' ')
 					redir_args[j][x]=redir_args[j][x+1];
 				else
@@ -35,7 +33,6 @@ void redirection(char comm[1024])
 			}
 			redir_args[j][length-1]='\0';
 		}
-		//printf("tyul\n");
 		if(comm[i]=='<')
 		{
 			input++;
@@ -52,11 +49,9 @@ void redirection(char comm[1024])
 		{
 			output++;
 			strcpy(outfile,redir_args[j]);
-			//printf("%s\n%s\n",outfile,redir_args[j]);
 			j++;
 		}
 	}
-	//printf(".%s. .%s. .%s.\n", outfile,infile,appfile);
 	if(input>0)
 	{
 		in = dup(0);
@@ -64,7 +59,6 @@ void redirection(char comm[1024])
 		if(infd == -1)
 		{
 			err_flag=1;
-			//printf("%d\n",errno);
 			perror("Error in Opening File");
 		}
 		else

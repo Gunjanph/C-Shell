@@ -7,7 +7,6 @@ void pidover()
 	int cpid,exst;
 	for(ll i=0;i<p;i++)
 	{
-		//printf("%d\n",kill(pidls[i][1],0));
 		if(curr_bg[i]!=-1)
 		{
 			cpid = waitpid(pidls[i][1], &status, WNOHANG);
@@ -32,7 +31,7 @@ void background(char * args[1024])
 		perror("Error while forking");
 		printf(":'(");
 	}
-	else if(pid==0)//CHILD PROCESS
+	else if(pid==0)     //CHILD PROCESS
 	{
 		setpgid(0,0);
 		execvp(args[0],args);

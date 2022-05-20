@@ -3,19 +3,16 @@
 
 void addhistory(char comm[1024])
 {
-	//printf("%lld %s\n",count,history[count]);
 	if(count < 20)
 	{
 		if(count!=0 && strcmp(history[count-1],comm)!=0)
 		{
 			strcpy(history[count],comm);
-		//	printf("%lld %s\n",count,history[count] );
 			count++;
 		}
 		else if(count==0)
 		{
 			strcpy(history[count],comm);
-		//	printf("%lld %s\n",count,history[count] );
 			count++;
 		}
 	}
@@ -55,7 +52,6 @@ void hist(ll k)
 		}
 		else
 		{
-		//	printf("%lld\n",count);
 			for(ll i=count-n;i<count;i++)
 				printf("%s\n",history[i]);
 			printf(":')");

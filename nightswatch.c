@@ -54,8 +54,7 @@ void nightswatch(ll k)
 			c=0;
 		}
 	}
-	// while((c = getchar()) != 'q')
-	// {}
+
 	if((c = getchar()) == 'q')
 		kill(pid,SIGKILL);
 }
@@ -73,8 +72,7 @@ void interrupt()
 		while (fgets(str, sizeof(str), fd)) 
 		{ 
 			if(j == 2 ) 
-			{ 
-				// printf("%s", str);
+			{
 				break;    
 			} 
 			j++;
@@ -103,8 +101,6 @@ void newborn()
 	}
 	else
 	{
-		// ll j=0;
-		// c=0;
 		for(ll i=0;i<5;i++)
 			fscanf(fd, "%s",str);
 

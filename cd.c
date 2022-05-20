@@ -16,7 +16,6 @@ void cd(char arr[1024])
 {
 	if(strcmp(arr,"..")==0)
 	{
-		//	printf("1\n");
 		if(chdir(arr)!=0)
 		{
 			perror("failed to do cd command");
@@ -32,7 +31,6 @@ void cd(char arr[1024])
 				{
 					if(newer[i]==old[i])
 					{
-						//	printf("%lld%c\n",i, present[i]);
 						continue;
 					}
 					else
@@ -47,11 +45,9 @@ void cd(char arr[1024])
 				for(ll k=strlen(old);k<strlen(newer);k++)
 				{
 					new[j]=newer[k];
-					//		printf("%c %lld %lld\n",present[k],k,j);
 					j++;
 				}
 				new[j]='\0';
-				//	printf("%s\n",new);
 				if(new[strlen(new)-1]=='/')
 					new[strlen(new)-1]='\0';
 			}
@@ -76,14 +72,6 @@ void cd(char arr[1024])
 	}
 	else if(strcmp(arr,"~")==0)
 	{
-		/*uid_t uid = getuid();
-		  struct passwd *pw = getpwuid(uid);
-		  if (pw == NULL) 
-		  {
-		  perror("Failed");
-		  }
-		  chdir(pw->pw_dir);
-		  getcwd(new,1000);*/
 		strcpy(new,old);
 		chdir(old);
 		printf(":')");
@@ -92,14 +80,6 @@ void cd(char arr[1024])
 	{
 		if(arr[0]=='~')
 		{
-			/*	uid_t uid = getuid();
-				struct passwd *pw = getpwuid(uid);
-				if (pw == NULL) 
-				{
-				perror("Failed");
-				}
-				chdir(pw->pw_dir);
-				getcwd(newer,1000);*/
 			strcpy(newer,old);
 			ll j=strlen(newer);
 			for(ll i=1;i<strlen(arr);i++)
@@ -123,7 +103,6 @@ void cd(char arr[1024])
 					{
 						if(newer[i]==old[i])
 						{
-							//	printf("%lld%c\n",i, present[i]);
 							continue;
 						}
 						else
@@ -138,11 +117,9 @@ void cd(char arr[1024])
 					for(ll k=strlen(old);k<strlen(newer);k++)
 					{
 						new[j]=newer[k];
-						//		printf("%c %lld %lld\n",present[k],k,j);
 						j++;
 					}
 					new[j]='\0';
-					//	printf("%s\n",new);
 					if(new[strlen(new)-1]=='/')
 						new[strlen(new)-1]='\0';
 				}
@@ -172,14 +149,12 @@ void cd(char arr[1024])
 			else
 			{
 			getcwd(temp2,1000);
-			//printf("%s\n",temp2);
 			if(strlen(temp2)>strlen(old))
 			{
 				for(i=0;i<strlen(old);i++)
 				{
 					if(temp2[i]==old[i])
 					{
-						//	printf("%lld%c\n",i, present[i]);
 						continue;
 					}
 					else
@@ -190,25 +165,20 @@ void cd(char arr[1024])
 			}
 			if(i==strlen(old))
 			{
-				//printf("%s\n",present);
 				ll j=0;
 				for(ll k=strlen(old);k<strlen(temp2);k++)
 				{
 					new[j]=temp2[k];
-					//		printf("%c %lld %lld\n",present[k],k,j);
 					j++;
 				}
 				new[j]='\0';
-				//	printf("%s\n",new);
 				if(new[strlen(new)-1]=='/')
 					new[strlen(new)-1]='\0';
-				//	printf("%s\n",new);
 			}
 			else
 				strcpy(new,temp2);
 			printf(":')");
 			}
-			//	printf("%s\n",temp2);
 		}
 	}
 }

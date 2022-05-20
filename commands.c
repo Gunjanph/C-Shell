@@ -18,44 +18,14 @@ void check_command(char command[1024])
 	char temp[1024];
 	strcpy(temp,command);
 	addhistory(command);
-	// printf("%s\n",command[j]);
 	token = strtok(temp," \t");
 	ll k=0;
 	while(token!=NULL)
 	{
 		strcpy(inter[k],token);
-		//	printf("%s\n",inter[k]);
 		token = strtok(NULL," \t");
 		k++;
 	}
-	//printf("%lld\n",k);
-	// ll input=0,output=0,app=0,flagr=0,pipe_flag=0;
-	// for(ll it=0;it<k;it++)
-	// {
-	// 	if(strcmp(inter[it],"<")==0)
-	// 	{
-	// 		input++;
-	// 		flagr++;
-	// 	}
-	// 	else if(strcmp(inter[it],">")==0)
-	// 	{
-	// 		flagr++;
-	// 		output++;
-	// 	}
-	// 	else if(strcmp(inter[it],">>")==0)
-	// 	{
-	// 		flagr++;
-	// 		app++;
-	// 	}
-	// 	else if(strcmp(inter[it],"|")==0)
-	// 		pipe_flag++;
-	// }
-	// //printf("%s\n",command[j]);
-	// // printf("%lld %lld %lld\n", input, output, app );
-	// if(flagr!=0 && pipe_flag==0)
-	// 	redirection(k,input,output,app);
-	// if(pipe_flag!=0)
-	// 	piping(pipe_flag,flagr,k,input,output,app);
 	if(strcmp(inter[0],"cd")==0)
 	{
 		if(k==1)
@@ -76,8 +46,6 @@ void check_command(char command[1024])
 	}
 	else if(strcmp(inter[0],"echo")==0)
 	{
-		//if(inter[1][0]=='"')
-		//	echo(command[j]);
 		if(k==1)
 			printf("\n");
 		else
@@ -94,7 +62,6 @@ void check_command(char command[1024])
 			ls();
 		else
 		{
-			//	printf("%s\n",inter[1]);
 			lsflag(k);
 		}
 	}
@@ -111,7 +78,7 @@ void check_command(char command[1024])
 	else if(strcmp(inter[0],"overkill")==0)
 		overkill();
 	else if(strcmp(inter[0],"quit")==0)
-		quit(); // CHECK FOR FG
+		quit();                             // CHECK FOR FG
 	else if(strcmp(inter[0],"jobs")==0)
 		jobs(k);
 	else if(strcmp(inter[0],"kjob")==0)

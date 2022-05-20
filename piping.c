@@ -4,7 +4,6 @@
 
 void piping(char comm[1024])
 {
-	// printf("in piping\n");
 	ll err=0;
 	char *p;
 	pid_t newproc;
@@ -20,7 +19,6 @@ void piping(char comm[1024])
     }
     for(int j=0; j<no; j++)
     {
-    	// printf("%s\n",pipe_args[j]);
     	flagr=0;
     	for(ll i=0;i<strlen(pipe_args[j]);i++)
     	{
@@ -37,7 +35,6 @@ void piping(char comm[1024])
         	err=1;
         }
         newproc=fork();
-        //printf("in j loop\n");
         if(newproc<0)
         {
         	err=1;
@@ -63,7 +60,6 @@ void piping(char comm[1024])
             	redirection(pipe_args[j]);
             else
             	check_command(pipe_args[j]);
-            //close(parr[1]);
             exit(2);
         }
         else
@@ -71,7 +67,6 @@ void piping(char comm[1024])
             wait(NULL);
             close(parr[1]);
             fd = parr[0];
-            //close(parr[0]);
         }
     }
     if(err==1)

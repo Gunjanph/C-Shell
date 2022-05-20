@@ -9,7 +9,6 @@ void ChildsigstopHandler(int signalCode)
 void foreground(char * args[1024])
 {
 	pid_t pid;
-	// strcpy(lastForegroundProc, args[0]);
 	curr_fore[0] = 1;
 	pid = fork();
 	child_pid = pid;
@@ -18,12 +17,10 @@ void foreground(char * args[1024])
 		perror("Error while forking\n");
 		printf(":'(");
 	}
-	else if(pid==0)//CHILD PROCESS
+	else if(pid==0)          //CHILD PROCESS
 	{
 		signal(SIGTSTP, ChildsigstopHandler);
 
-		//printf("%d;%d\n",getpid(),getppid());
-		// curr_fore[0] = getpid();
 		int che=execvp(args[0],args);
 		if(che<0)
 		{
@@ -37,8 +34,6 @@ void foreground(char * args[1024])
 	}
 	else
 	{
-		// curr_fore[0] = -1;
-		//printf("%lld\n", curr_fore[0]);
 		waitpid(pid, NULL, WUNTRACED);
 	}
 }
